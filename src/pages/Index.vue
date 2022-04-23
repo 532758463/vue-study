@@ -13,15 +13,12 @@ const tabs = {
   SlotDemoVue,
   ComputedDemoVue
 }
-const currentTab = ref('Home')
+const currentTab = ref('PropsDemoVue')
 </script>
 <template>
-  <FancyButton>
-    Click me
-  </FancyButton>
   <FancyButton v-for="(_, tab) in tabs" @click="currentTab = tab">
     {{ tab }}
-    <AwesomeIcon />
+    <AwesomeIcon v-if="currentTab === tab" />
   </FancyButton>
   <component :is="tabs[currentTab]" class="tab"></component>
 </template>
