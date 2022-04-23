@@ -17,6 +17,7 @@ function changeSlotName() {
     <SlotDemo msg="Hello Vue 3 + TypeScript + Vite">
         <template #[dynamicSlotName]="slotProps">
             <h1>Here might be a page title</h1>
+            <router-link to='/slot'>Go to slot page.</router-link>
             <h2>{{ slotProps.text }}</h2>
             <h2>{{ slotProps.count }}</h2>
         </template>

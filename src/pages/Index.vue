@@ -13,11 +13,19 @@ const tabs = {
   SlotDemoVue,
   ComputedDemoVue
 }
+
+const tabNames = {
+  PropsDemoVue: "Props",
+  ReactiveDemoVue: 'reactive',
+  SlotDemoVue: '插槽',
+  ComputedDemoVue: '计算属性'
+}
+
 const currentTab = ref('PropsDemoVue')
 </script>
 <template>
   <FancyButton v-for="(_, tab) in tabs" @click="currentTab = tab">
-    {{ tab }}
+    {{ tabNames[tab] }}
     <AwesomeIcon v-if="currentTab === tab" />
   </FancyButton>
   <component :is="tabs[currentTab]" class="tab"></component>
