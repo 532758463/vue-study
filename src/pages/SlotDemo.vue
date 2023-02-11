@@ -25,7 +25,7 @@ function changeSlotName() {
         <!-- implicit default slot -->
         <p class="bg-red-500">A paragraph for the main content.</p>
         <p>And another one.</p>
-        <button :onclick="changeSlotName">1111</button>
+        <button class="border bg-sky-400" :onclick="changeSlotName">动态改变插槽</button>
 
         <template #footer>
             <p>Here's some contact info</p>

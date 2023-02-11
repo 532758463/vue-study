@@ -10,14 +10,18 @@ const posts = ref([
     { id: 3, title: 'Why Vue is so fun' }
 ])
 
-const postFontSize = ref(1)
+const postFontSize = ref(1);
+const count = ref(0)
+function add(c: number) {
+    count.value = count.value + c
+}
 
 </script>
 
 <template>
     <div :style="{ fontSize: postFontSize + 'em' }">
-        <BlogPost v-for="post in posts" :key="post.id" :title="post.title" :title2="post.title + post.id"
-            @enlarge-text="postFontSize += 0.1"></BlogPost>
+        <BlogPost :count="count" v-for="post in posts" :key="post.id" :title="post.title" :title2="post.title + post.id"
+            @enlarge-text="postFontSize += 0.1" @add="add"></BlogPost>
     </div>
 </template>
 

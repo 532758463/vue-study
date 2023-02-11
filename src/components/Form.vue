@@ -9,7 +9,7 @@ const selected = ref('')
 <template>
     <h2>Text Input</h2>
     <div>v-modal</div>
-    <input v-model="text"> {{ text }}
+    <input class="border border-black" v-model="text"> {{ text }}
 
     <h2>checkbox</h2>
     <div>Checked names: {{ checkedNames }}</div>

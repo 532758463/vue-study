@@ -8,6 +8,12 @@ import SlotDemoVue from './SlotDemo.vue'
 import ComputedDemoVue from './ComputedDemo.vue'
 import ClassBindingVue from '@/components/ClassBinding.vue';
 import Form from '@/components/Form.vue'
+import EmitPage from './EmitPage.vue'
+import AttrDemo from '@/components/AttrsAndListeners/Level1.vue'
+import IframeVue from './Iframe.vue'
+import InjectDemo from '@/components/ProvideAndInject/Level1.vue'
+import LifecycleVue from '@/components/Lifecycle/Lifecycle.vue'
+import KeepAliveDemo from '@/components/KeepAlive/index.vue'
 
 const tabs = {
   PropsDemoVue,
@@ -15,7 +21,13 @@ const tabs = {
   SlotDemoVue,
   ComputedDemoVue,
   ClassBindingVue,
-  Form
+  Form,
+  EmitPage,
+  AttrDemo,
+  IframeVue,
+  InjectDemo,
+  LifecycleVue,
+  KeepAliveDemo
 }
 
 const tabNames = {
@@ -24,7 +36,13 @@ const tabNames = {
   SlotDemoVue: '插槽',
   ComputedDemoVue: '计算属性',
   ClassBindingVue: '属性绑定',
-  Form: '表单'
+  Form: '表单',
+  EmitPage: '自定义事件',
+  AttrDemo: 'attr',
+  IframeVue: 'Iframe',
+  InjectDemo: 'Provide and Inject',
+  LifecycleVue: '生命周期',
+  KeepAliveDemo: 'KeepAliveDemo'
 }
 
 const currentTab = ref('PropsDemoVue')
