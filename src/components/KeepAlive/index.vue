@@ -5,18 +5,21 @@
             <Child1 ref="child1" v-if="num === 1"></Child1>
             <Child2 v-else></Child2>
         </keep-alive>
+        <AliveDemo></AliveDemo>
     </div>
 </template>
 <script lang="ts">
 import { ref, nextTick, onMounted } from 'vue'
 import Child1 from './Child1.vue'
 import Child2 from './Child2.vue'
+import AliveDemo from './AliveDemo.vue';
 
 export default {
     name: "KeepAlive",
     components: {
         Child1,
-        Child2
+        Child2,
+        AliveDemo,
     },
     data() {
         return {

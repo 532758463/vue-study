@@ -10,9 +10,17 @@ defineEmits(['update:modelValue'])
 </template> -->
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, PropType } from 'vue'
 
-const props = defineProps(['modelValue'])
+// const props = defineProps<{
+//   modelValue: string
+// }>()
+const props = defineProps({
+  modelValue: {
+    type: String as PropType<string>, // 明确指定为 string 类型
+    required: true // 可选：设置为必填项
+  }
+})
 const emit = defineEmits(['update:modelValue'])
 
 

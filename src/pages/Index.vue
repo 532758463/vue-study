@@ -14,8 +14,9 @@ import IframeVue from './Iframe.vue'
 import InjectDemo from '@/components/ProvideAndInject/Level1.vue'
 import LifecycleVue from '@/components/Lifecycle/Lifecycle.vue'
 import KeepAliveDemo from '@/components/KeepAlive/index.vue'
+import TransitionDemo from '@/components/transition/index.vue';
 
-const tabs = {
+const tabs: Record<string, any> = {
   PropsDemoVue,
   ReactiveDemoVue,
   SlotDemoVue,
@@ -27,7 +28,8 @@ const tabs = {
   IframeVue,
   InjectDemo,
   LifecycleVue,
-  KeepAliveDemo
+  KeepAliveDemo,
+  TransitionDemo
 }
 
 const tabNames = {
@@ -42,7 +44,8 @@ const tabNames = {
   IframeVue: 'Iframe',
   InjectDemo: 'Provide and Inject',
   LifecycleVue: '生命周期',
-  KeepAliveDemo: 'KeepAliveDemo'
+  KeepAliveDemo: 'KeepAliveDemo',
+  TransitionDemo: 'Transition',
 }
 
 const currentTab = ref('PropsDemoVue')
@@ -52,12 +55,26 @@ const currentTab = ref('PropsDemoVue')
     {{ tabNames[tab] || tab }}
     <AwesomeIcon v-if="currentTab === tab" />
   </FancyButton>
-  <component :is="tabs[currentTab]" class="tab"></component>
+  <Transition name="fade" mode="out-in">
+    <KeepAlive>
+      <component :is="tabs[currentTab]" class="tab"></component>
+    </KeepAlive>
+  </Transition>
 </template>
 
 <style>
 .tab {
   border: 1px solid #ccc;
   padding: 10px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

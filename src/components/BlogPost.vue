@@ -1,5 +1,16 @@
 <script setup  lang="ts">
+import { triggerRef, shallowRef, watchEffect } from 'vue';
 
+const shallow = shallowRef({
+  greet: 'Hello, world'
+})
+
+watchEffect(()=>{
+  console.log(shallow.value.greet)
+});
+
+shallow.value.greet = 'Hello, vue3';
+// triggerRef(shallow)
 // 1. 此方式获取props需要script标签上面lang="ts"
 defineProps<{
     title: string,
